@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.InputMismatchException;
 
 /**
  * Main — Entry point for the Birth Year Calculator console application.
