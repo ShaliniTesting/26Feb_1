@@ -47,6 +47,17 @@ public class Main {
             try {
                 System.out.print("Enter your age: ");
 
+                // Guard against EOF (end-of-stream): if stdin has been closed or
+                // exhausted (e.g., piped input without a trailing "exit" command),
+                // hasNextLine() returns false. We break out of the loop gracefully
+                // rather than allowing nextLine() to throw NoSuchElementException,
+                // which would be caught by the generic handler and cause an infinite loop.
+                if (!scanner.hasNextLine()) {
+                    System.out.println();
+                    System.out.println("Input stream closed. Exiting.");
+                    break;
+                }
+
                 // Read the entire line as a String to support both numeric ages
                 // and text-based exit commands in a unified input flow.
                 String input = scanner.nextLine().trim();
