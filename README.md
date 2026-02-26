@@ -70,56 +70,56 @@ java -jar target/birth-year-calculator-1.0-SNAPSHOT.jar
 ### Valid Input
 
 ```
-===================================
-   Birth Year Calculator
-===================================
+Welcome to the Birth Year Calculator!
+Enter your age to calculate your birth year.
+Type "exit" or "quit" to stop.
 
-Enter your age (or type 'exit' to quit): 30
-
+Enter your age: 30
 If you are 30 years old, you were born in 1996.
+If your birthday has not yet occurred this year, you were born in 1995.
 
-Enter your age (or type 'exit' to quit): 5
-
+Enter your age: 5
 If you are 5 years old, you were born in 2021.
+If your birthday has not yet occurred this year, you were born in 2020.
 ```
 
 ### Invalid Input — Negative Number
 
 ```
-Enter your age (or type 'exit' to quit): -5
+Enter your age: -5
 
-Error: Age must be a positive number. Please try again.
+Invalid age. Please enter a positive number greater than zero.
 ```
 
 ### Invalid Input — Zero
 
 ```
-Enter your age (or type 'exit' to quit): 0
+Enter your age: 0
 
-Error: Age must be a positive number. Please try again.
+Invalid age. Please enter a positive number greater than zero.
 ```
 
 ### Invalid Input — Non-Numeric
 
 ```
-Enter your age (or type 'exit' to quit): abc
+Enter your age: abc
 
-Error: Invalid input. Please enter a valid whole number.
+Invalid input. Please enter a valid whole number for your age.
 ```
 
 ### Exiting the Program
 
 ```
-Enter your age (or type 'exit' to quit): exit
+Enter your age: exit
 
-Thank you for using Birth Year Calculator. Goodbye!
+Thank you for using the Birth Year Calculator. Goodbye!
 ```
 
 ## Features
 
 - **Birth year calculation** using `java.time.Year.now()` — dynamically retrieves the current year at runtime, never hardcoded
 - **Input validation** — rejects negative numbers, zero, and non-numeric input with clear error messages
-- **Exception handling** — gracefully catches `InputMismatchException` when non-numeric input is entered, preventing application crashes
+- **Exception handling** — gracefully catches `NumberFormatException` when non-numeric input is entered, preventing application crashes
 - **Repeated calculations** — allows the user to perform multiple calculations without restarting the program via a loop-based interaction model
 - **Birthday edge-case handling** — supports an overloaded calculation method that accounts for whether the user's birthday has already occurred this year (birth year could be `currentYear - age` or `currentYear - age - 1`)
 - **JUnit 5 unit test coverage** — comprehensive test suite validating calculation correctness, input validation, and edge cases
